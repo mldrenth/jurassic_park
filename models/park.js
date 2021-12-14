@@ -50,4 +50,10 @@ Park.prototype.calculateYearlyVisitors = function () {
 
 }
 
+Park.prototype.calculateYearlyRevenue = function (){
+    const yearlyVisitors = this.calculateYearlyVisitors();
+    let yearlyRevenue = yearlyVisitors * this.ticketPrice;
+    return yearlyRevenue;
+}
+
 module.exports = Park
