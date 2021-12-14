@@ -91,6 +91,15 @@ describe('Park', function() {
     park.removeDinosaurBySpecies("Brachiosaurus");
     const actual = park.collectionOfDinosaurs;
     assert.deepStrictEqual(actual, [trex, velociraptor])
+  });
+
+  it('should be able to get an object containting each of the diet types and the number of donosaurs with that diet type', function(){
+    park.addToCollection(trex);
+    park.addToCollection(brachiosaurus);
+    park.addToCollection(velociraptor);
+    park.addToCollection(brachiosaurus);
+    const actual = park.getDietTypeOverview();
+    assert.deepStrictEqual(actual, {'Carnivore': 2, 'Herbivore': 2})
   })
 
 });

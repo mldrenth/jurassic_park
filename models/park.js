@@ -64,4 +64,17 @@ Park.prototype.removeDinosaurBySpecies = function (species){
     }
 };
 
+Park.prototype.getDietTypeOverview = function (){
+    let dietTypeOverview = {};
+    for (let dinosaur of this.collectionOfDinosaurs) {
+        if(!(dinosaur.diet in dietTypeOverview)) {
+            dietTypeOverview[dinosaur.diet] = 1;
+        }
+        else {
+            dietTypeOverview[dinosaur.diet] += 1;
+        }
+    }
+    return dietTypeOverview;
+};
+
 module.exports = Park
