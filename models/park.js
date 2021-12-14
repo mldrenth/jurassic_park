@@ -35,4 +35,12 @@ Park.prototype.findAllDinosaursBySpecies = function (species) {
     return dinosaursSpeciesList;
 }
 
+Park.prototype.calculateDailyVisitors = function () {
+    let dailyVisitors = 0;
+    for (let dinosaur of this.collectionOfDinosaurs){
+        dailyVisitors += dinosaur.guestsAttractedPerDay;
+    }
+    return dailyVisitors;
+}
+
 module.exports = Park
