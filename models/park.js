@@ -56,4 +56,12 @@ Park.prototype.calculateYearlyRevenue = function (){
     return yearlyRevenue;
 }
 
+Park.prototype.removeDinosaurBySpecies = function (species){
+    for (let i = this.collectionOfDinosaurs.length; i--;) {
+        if (this.collectionOfDinosaurs[i].species === species) {
+            this.collectionOfDinosaurs.splice(i,1);
+        }
+    }
+};
+
 module.exports = Park
