@@ -43,4 +43,11 @@ Park.prototype.calculateDailyVisitors = function () {
     return dailyVisitors;
 }
 
+Park.prototype.calculateYearlyVisitors = function () {
+    const dailyVisitors = this.calculateDailyVisitors();
+    let yearlyVisitors = dailyVisitors * 365;
+    return yearlyVisitors;
+
+}
+
 module.exports = Park

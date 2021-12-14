@@ -65,7 +65,14 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, 470)
   });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function(){
+    park.addToCollection(trex);
+    park.addToCollection(brachiosaurus);
+    park.addToCollection(velociraptor);
+    park.addToCollection(brachiosaurus);
+    const actual = park.calculateYearlyVisitors();
+    assert.deepStrictEqual(actual, 171550)
+  });
 
   it('should be able to calculate total revenue for one year');
 
