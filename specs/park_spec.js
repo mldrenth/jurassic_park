@@ -7,6 +7,7 @@ describe('Park', function() {
   beforeEach(function () {
     trex  = new Dinosaur('T-Rex', 'Carnivore', 200)
     brachiosaurus = new Dinosaur('Brachiosaurus', 'Herbivore', 10)
+    velociraptor = new Dinosaur('Velociraptor', 'Carnivore', 250)
     park = new Park('Jurassic Park', 50);
   });
 
@@ -26,20 +27,26 @@ describe('Park', function() {
   });
 
   it('should be able to add a dinosaur to its collection', function() {
-    park.add_to_collection(trex);
+    park.addToCollection(trex);
     const actual = park.collectionOfDinosaurs;
     assert.deepStrictEqual(actual,[trex])
   });
 
   it('should be able to remove a dinosaur from its collection', function() {
-    park.add_to_collection(trex);
-    park.add_to_collection(brachiosaurus);
-    park.remove_from_collection(trex);
+    park.addToCollection(trex);
+    park.addToCollection(brachiosaurus);
+    park.removeFromCollection(trex);
     const actual = park.collectionOfDinosaurs;
     assert.deepStrictEqual(actual,[brachiosaurus])
   });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function(){
+    park.addToCollection(trex);
+    park.addToCollection(velociraptor);
+    park.addToCollection(brachiosaurus);
+    const actual = park.findHighestRanked();
+    assert.deepStrictEqual(actual, velociraptor);
+  });
 
   it('should be able to find all dinosaurs of a particular species');
 
