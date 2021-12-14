@@ -25,4 +25,14 @@ Park.prototype.findHighestRanked = function () {
     return highestRankedDinosaur;
 };
 
+Park.prototype.findAllDinosaursBySpecies = function (species) {
+    let dinosaursSpeciesList = [];
+    for (let dinosaur of this.collectionOfDinosaurs){
+        if (dinosaur.species === species) {
+            dinosaursSpeciesList.push(dinosaur);
+        }
+    }
+    return dinosaursSpeciesList;
+}
+
 module.exports = Park
